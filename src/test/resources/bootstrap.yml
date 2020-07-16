@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: little-cms-endpoint
+  profiles:
+    active:
+      test
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    consul:
+      host: 192.168.1.21
+      port: 8500
+      config:
+        enabled: false
+
+
+server:
+  port: 17001

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: little-cms-endpoint
+  profiles:
+    active:
+      test
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    consul:
+      host: 192.168.1.21
+      port: 8500
+      config:
+        enabled: true
+        format: yaml
+        prefix: config
+        profile-separator: ':'
+        data-key: data
+
+server:
+  port: 19201

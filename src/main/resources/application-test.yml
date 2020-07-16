@@ -1,0 +1,28 @@
+
+
+#Setting the logging levels for the service
+logging:
+  level:
+    com.netflix: WARN
+    cc.coopersoft: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.boot.autoconfigure: DEBUG
+
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://192.168.1.21:8901/auth/realms/construction/protocol/openid-connect/certs
+  datasource:
+    url: "jdbc:mysql://127.0.0.1:3306/CMS?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false"
+    username: "root"
+    password: "5257mq99"
+    platform: mysql
+    initialization-mode: always
+  jpa:
+    show-sql: "true"
+
+
