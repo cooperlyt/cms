@@ -1,9 +1,9 @@
 package cc.coopersoft.cms.model;
 
-import cc.coopersoft.common.cloud.json.JsonRawDeserializer;
-import cc.coopersoft.common.cloud.json.JsonRawSerialize;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRawValue;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -93,8 +93,7 @@ public class Article {
     private String mimeType;
 
     @Basic(fetch = FetchType.LAZY)
-    @JsonDeserialize(using = JsonRawDeserializer.class)
-    @JsonSerialize(using = JsonRawSerialize.class)
+    @JsonRawValue
     @JsonView(DocumentSummary.class)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private String docSummary;

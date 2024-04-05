@@ -6,7 +6,6 @@ import cc.coopersoft.cms.model.Document;
 import cc.coopersoft.cms.repository.ArticleRepository;
 import cc.coopersoft.cms.repository.CategoryRepository;
 import cc.coopersoft.cms.repository.DocumentRepository;
-import cc.coopersoft.common.cloud.schemas.WeedFsResult;
 import com.github.wujun234.uid.UidGenerator;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

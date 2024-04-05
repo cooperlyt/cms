@@ -1,12 +1,15 @@
-FROM adoptopenjdk/openjdk11-openj9:alpine-slim
-RUN echo http://mirrors.ustc.edu.cn/alpine/v3.8/main > /etc/apk/repositories; \
-    echo http://mirrors.ustc.edu.cn/alpine/v3.8/community >> /etc/apk/repositories \
-    &&  apk update && apk upgrade && apk add netcat-openbsd \
-    && apk add --no-cache tzdata \
-    && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo "Asia/Shanghai" > /etc/timezone \
-    && rm -rf /var/cache/apk/* /tmp/* /var/tmp/* $HOME/.cache \
-    && mkdir -p /usr/local/app
+FROM ibm-semeru-runtimes:open-11-jdk
+ENV TZ=Asia/Shanghai \
+    DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y update && apt-get -y upgrade \
+    && apt-get -y install --no-install-recommends \
+    tzdata \
+    && ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && dpkg-reconfigure --frontend noninteractive tzdata \
+    && rm -rf /var/lib/apt/lists/*  \
+    && mkdir -p /usr/local/app \
+    && mkdir -p /opt/config
 ADD @project.build.finalName@.jar /usr/local/app/
 ADD run.sh run.sh
 RUN chmod +x run.sh

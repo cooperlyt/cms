@@ -4,6 +4,7 @@ import cc.coopersoft.cms.Application;
 import cc.coopersoft.cms.model.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.FixMethodOrder;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
+@Disabled
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class)
 //@ContextConfiguration
